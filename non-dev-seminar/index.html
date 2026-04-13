@@ -90,6 +90,36 @@ kbd{display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.06);borde
 @media(max-width:768px){.slide{padding:6vh 6vw 80px}.comp,.grid,.stat-grid{flex-direction:column;gap:0}.comp-item,.stat-card{border-right:none;border-bottom:1px solid rgba(255,255,255,0.06);padding:2vh 0}.comp-item:last-child,.stat-card:last-child{border-bottom:none}.arch-layers{gap:0}.arch-layer{flex-direction:column;align-items:flex-start;padding:1.5vh 0;gap:4px}.arch-layer .role{width:auto;margin-bottom:2px}.arch-layer .desc{text-align:left}.two-col{flex-direction:column;gap:2vh}.tbl{display:block;overflow-x:auto}.nav{left:20px;bottom:20px}.pipeline{flex-wrap:wrap;gap:0}}
 @media print{body{background:#fff;color:#000;overflow:visible}.nav,.progress,.part-label,.page-num{display:none}.slides{display:block}.slide{min-height:auto;page-break-after:always;background:#fff!important;color:#000!important;padding:2cm}.em,.red,.green,.yellow{color:#000!important}.sub{color:#333!important}}
 @media(prefers-reduced-motion:reduce){.nav button{transition:none}}
+
+/* ===== VISIBILITY OVERRIDE (2026-04-13) — 체감 125% + 회색 가시성 상향 ===== */
+html{font-size:117%}
+.meta{font-size:0.92rem!important;color:rgba(255,255,255,0.55)!important}
+.part-label{font-size:0.78rem!important;color:rgba(255,255,255,0.4)!important}
+.page-num{font-size:0.78rem!important;color:rgba(255,255,255,0.45)!important}
+cite{font-size:0.88rem!important;color:rgba(255,255,255,0.5)!important}
+.tbl th{font-size:0.85rem!important;color:rgba(255,255,255,0.55)!important}
+.tbl td{font-size:clamp(1rem,1.2vw,1.15rem)!important;color:rgba(255,255,255,0.7)!important}
+.comp-item .tag{font-size:0.85rem!important;color:rgba(255,255,255,0.6)!important}
+.comp-item p{color:rgba(255,255,255,0.78)!important}
+.grid-item .desc{font-size:clamp(0.92rem,1.1vw,1rem)!important;color:rgba(255,255,255,0.6)!important}
+.arch-layer .role{font-size:0.88rem!important;color:rgba(255,255,255,0.6)!important}
+.arch-layer .desc{font-size:1rem!important;color:rgba(255,255,255,0.65)!important}
+.stat-card .label{font-size:0.85rem!important;color:rgba(255,255,255,0.65)!important}
+.stat-card .source{font-size:0.85rem!important;color:rgba(255,255,255,0.55)!important}
+.sub{color:rgba(255,255,255,0.7)!important}
+.note.warn p,.note.tip p{font-size:clamp(0.98rem,1.2vw,1.12rem)!important;color:rgba(255,255,255,0.7)!important}
+.list li{font-size:clamp(1.2rem,1.8vw,1.55rem)!important;color:rgba(255,255,255,0.72)!important}
+.pipeline-step{font-size:clamp(0.95rem,1.2vw,1.1rem)!important;color:rgba(255,255,255,0.62)!important}
+/* 인라인 낮은 opacity 회색 일괄 상향 */
+[style*="rgba(255,255,255,0.25)"]{color:rgba(255,255,255,0.55)!important}
+[style*="rgba(255,255,255,0.3)"]{color:rgba(255,255,255,0.58)!important}
+[style*="rgba(255,255,255,0.35)"]{color:rgba(255,255,255,0.6)!important}
+[style*="rgba(255,255,255,0.4)"]:not(.meta){color:rgba(255,255,255,0.62)!important}
+[style*="rgba(255,255,255,0.45)"]{color:rgba(255,255,255,0.65)!important}
+/* 포인트 em 가독성 */
+.em{font-weight:700}
+.slide.light .em{font-weight:800}
+
 </style>
 </head>
 <body>
@@ -415,14 +445,14 @@ kbd{display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.06);borde
     </tbody>
   </table>
 </div>
-<!-- S19 Samsung 비유 -->
+<!-- S19 비유로 이해하는 구조 -->
 <div class="slide surface">
-  <h3>Samsung 비유로 이해하는 구조</h3>
+  <h3>비유로 이해하는 구조</h3>
   <div class="arch-layers">
-    <div class="arch-layer" style="padding:12px 24px; background:rgba(255,255,255,0.02); border-left:4px solid rgba(255,255,255,0.03);">
-      <div class="role" style="color:rgba(255,255,255,0.25); font-size:0.78rem;">회사</div>
-      <div class="brand" style="font-size:1rem; color:rgba(255,255,255,0.35); font-weight:600;">SAMSUNG</div>
-      <div class="desc" style="font-size:0.9rem; color:rgba(255,255,255,0.35);">ANTHROPIC &middot; GOOGLE &middot; OPENAI</div>
+    <div class="arch-layer">
+      <div class="role">제조사</div>
+      <div class="brand">Samsung</div>
+      <div class="desc">Anthropic &middot; Google &middot; OpenAI</div>
     </div>
     <div class="arch-layer">
       <div class="role">브랜드</div>
@@ -446,7 +476,7 @@ kbd{display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.06);borde
 <!-- S20 성능 공식 (비개발자 버전) -->
 <div class="slide in-indigo">
   <h3>성능 공식</h3>
-  <p class="formula" style="margin:4vh 0; font-size:clamp(2.5rem,5vw,3.8rem);">업무 성과 = <span class="em">Model</span> &times; <span class="green">Agent</span> &times; <span class="yellow">나(Pilot)</span></p>
+  <p class="formula" style="margin:4vh 0; font-size:clamp(2.5rem,5vw,3.8rem);">성능 = <span class="em">Model</span> &times; <span class="green">Agent</span> &times; <span class="yellow">나(Pilot)</span></p>
   <div class="comp" style="margin-top:2vh;">
     <div class="comp-item on">
       <div class="tag">Model</div>
@@ -464,38 +494,76 @@ kbd{display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.06);borde
   <p class="sub" style="margin-top:2vh;">셋 중 하나라도 0이면 결과도 0 &mdash; <span class="em">사용하는 사람이 핵심</span></p>
 </div>
 
-<!-- S21 에이전트 → 멀티에이전트 -->
+<!-- S21 에이전트 → 팀(Team) -->
 <div class="slide surface">
-  <h3>그 다음 단계 &mdash; 멀티에이전트</h3>
-  <p class="sub" style="margin-top:0; margin-bottom:3vh; color:rgba(255,255,255,0.45);">비서 1명에서 전문가 팀으로</p>
-  <div style="display:flex; gap:3vw; width:100%; max-width:960px; align-items:stretch;">
-    <div style="flex:1; border:1px solid rgba(255,255,255,0.08); border-radius:4px; padding:32px 24px; text-align:center;">
-      <i class="ph-fill ph-robot" style="font-size:3.5rem; color:rgba(255,255,255,0.3);"></i>
-      <h4 style="color:rgba(255,255,255,0.45); font-size:1.1rem; margin:12px 0 22px;">에이전트 <span style="font-size:0.85rem; color:rgba(255,255,255,0.25);">(2025)</span></h4>
-      <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
-        <div style="background:rgba(255,255,255,0.04); padding:10px 20px; border-radius:8px; width:85%;"><span style="color:rgba(255,255,255,0.5); font-size:0.95rem;">시장조사</span></div>
-        <i class="ph ph-caret-down" style="font-size:1rem; color:rgba(255,255,255,0.12);"></i>
-        <div style="background:rgba(255,255,255,0.04); padding:10px 20px; border-radius:8px; width:85%;"><span style="color:rgba(255,255,255,0.5); font-size:0.95rem;">보고서 작성</span></div>
-        <i class="ph ph-caret-down" style="font-size:1rem; color:rgba(255,255,255,0.12);"></i>
-        <div style="background:rgba(255,255,255,0.04); padding:10px 20px; border-radius:8px; width:85%;"><span style="color:rgba(255,255,255,0.5); font-size:0.95rem;">팩트체크</span></div>
-        <i class="ph ph-caret-down" style="font-size:1rem; color:rgba(255,255,255,0.12);"></i>
-        <div style="background:rgba(255,255,255,0.04); padding:10px 20px; border-radius:8px; width:85%;"><span style="color:rgba(255,255,255,0.5); font-size:0.95rem;">프레젠테이션</span></div>
+  <h3>에이전트에서 팀(Team)으로</h3>
+  <p class="sub" style="margin-top:0; margin-bottom:3vh; font-size:clamp(1.05rem,1.5vw,1.3rem); color:rgba(255,255,255,0.6);">비서 1명에서 <span class="em">전문가 팀</span>으로 확장</p>
+  <div style="display:flex; gap:3vw; width:100%; max-width:1080px; align-items:stretch;">
+    <!-- LEFT: Solo agent -->
+    <div style="flex:0.85; border:1px solid rgba(255,255,255,0.08); border-radius:4px; padding:28px 22px; text-align:center; display:flex; flex-direction:column;">
+      <i class="ph-fill ph-robot" style="font-size:3rem; color:rgba(255,255,255,0.4); margin-bottom:8px;"></i>
+      <h4 style="color:rgba(255,255,255,0.65); font-size:1.05rem; margin-bottom:4px; font-weight:700;">에이전트 1명</h4>
+      <p style="color:rgba(255,255,255,0.4); font-size:0.8rem; margin-bottom:14px;">Solo &middot; Sequential</p>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:3px; flex:1;">
+        <div style="background:rgba(255,255,255,0.05); padding:8px 14px; border-radius:4px; width:100%; font-size:0.86rem; color:rgba(255,255,255,0.65);">시장조사</div>
+        <i class="ph ph-caret-down" style="font-size:0.85rem; color:rgba(255,255,255,0.2);"></i>
+        <div style="background:rgba(255,255,255,0.05); padding:8px 14px; border-radius:4px; width:100%; font-size:0.86rem; color:rgba(255,255,255,0.65);">보고서</div>
+        <i class="ph ph-caret-down" style="font-size:0.85rem; color:rgba(255,255,255,0.2);"></i>
+        <div style="background:rgba(255,255,255,0.05); padding:8px 14px; border-radius:4px; width:100%; font-size:0.86rem; color:rgba(255,255,255,0.65);">팩트체크</div>
+        <i class="ph ph-caret-down" style="font-size:0.85rem; color:rgba(255,255,255,0.2);"></i>
+        <div style="background:rgba(255,255,255,0.05); padding:8px 14px; border-radius:4px; width:100%; font-size:0.86rem; color:rgba(255,255,255,0.65);">프레젠테이션</div>
       </div>
-      <p style="margin-top:14px; color:rgba(255,255,255,0.25); font-size:0.85rem;">1명이 순서대로 처리</p>
+      <p style="margin-top:12px; color:rgba(255,255,255,0.35); font-size:0.8rem;">순차 처리</p>
     </div>
-    <div style="display:flex; align-items:center;"><i class="ph-bold ph-arrow-right" style="font-size:1.8rem; color:rgba(255,255,255,0.1);"></i></div>
-    <div style="flex:1.15; border:1px solid rgba(52,211,153,0.2); border-radius:4px; padding:32px 24px; text-align:center;">
-      <div style="display:flex; gap:6px; justify-content:center; margin-bottom:8px;"><i class="ph-fill ph-robot" style="font-size:1.8rem; color:#34d399;"></i><i class="ph-fill ph-robot" style="font-size:1.8rem; color:#34d399;"></i><i class="ph-fill ph-robot" style="font-size:1.8rem; color:#34d399;"></i><i class="ph-fill ph-robot" style="font-size:1.8rem; color:#34d399;"></i></div>
-      <h4 style="color:#34d399; font-size:1.1rem; margin-bottom:22px;">멀티에이전트 <span style="font-size:0.85rem; color:rgba(16,232,144,0.5);">(2026)</span></h4>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-        <div style="background:transparent; padding:14px 12px; border-radius:10px; border:1px solid rgba(16,232,144,0.15);"><p style="color:rgba(255,255,255,0.5); font-size:0.88rem; font-weight:600;">시장조사 전문가</p></div>
-        <div style="background:transparent; padding:14px 12px; border-radius:10px; border:1px solid rgba(16,232,144,0.15);"><p style="color:rgba(255,255,255,0.5); font-size:0.88rem; font-weight:600;">보고서 전문가</p></div>
-        <div style="background:transparent; padding:14px 12px; border-radius:10px; border:1px solid rgba(16,232,144,0.15);"><p style="color:rgba(255,255,255,0.5); font-size:0.88rem; font-weight:600;">팩트체크 전문가</p></div>
-        <div style="background:transparent; padding:14px 12px; border-radius:10px; border:1px solid rgba(16,232,144,0.15);"><p style="color:rgba(255,255,255,0.5); font-size:0.88rem; font-weight:600;">시각화 전문가</p></div>
+    <!-- Arrow -->
+    <div style="display:flex; align-items:center; flex-direction:column; justify-content:center; gap:8px;">
+      <i class="ph-bold ph-arrow-right" style="font-size:2rem; color:rgba(52,211,153,0.4);"></i>
+      <div style="color:rgba(52,211,153,0.55); font-size:0.7rem; font-weight:700; letter-spacing:0.12em;">SCALE</div>
+    </div>
+    <!-- RIGHT: Team -->
+    <div style="flex:1.4; border:1px solid rgba(52,211,153,0.25); border-radius:4px; padding:24px 22px; text-align:center; position:relative;">
+      <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:linear-gradient(90deg,#34d399,#60a5fa); padding:4px 18px; border-radius:20px; font-size:0.75rem; font-weight:800; letter-spacing:0.15em; color:#062418;">TEAM</div>
+      <!-- Team Lead -->
+      <div style="display:flex; flex-direction:column; align-items:center; margin-top:8px;">
+        <div style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; background:rgba(52,211,153,0.12); border:1px solid rgba(52,211,153,0.4); border-radius:6px;">
+          <i class="ph-fill ph-crown-simple" style="font-size:1.3rem; color:#fbbf24;"></i>
+          <i class="ph-fill ph-robot" style="font-size:1.5rem; color:#34d399;"></i>
+          <span style="color:#D4F5E2; font-weight:700; font-size:0.95rem;">Team Lead</span>
+        </div>
+        <div style="color:rgba(52,211,153,0.55); font-size:0.75rem; margin-top:4px; letter-spacing:0.04em;">Orchestrator &middot; 역할 분배 &middot; 취합</div>
+        <div style="width:2px; height:16px; background:linear-gradient(180deg,rgba(52,211,153,0.6),rgba(52,211,153,0.2)); margin-top:6px;"></div>
+        <div style="width:86%; height:1px; background:rgba(52,211,153,0.35);"></div>
       </div>
-      <div style="margin-top:14px; padding:6px 14px; background:transparent; border-radius:6px; display:inline-flex; align-items:center; gap:6px;"><i class="ph-fill ph-lightning" style="font-size:1rem; color:#34d399;"></i><span style="color:#34d399; font-size:0.88rem; font-weight:700;">전문가 4명이 동시에</span></div>
+      <!-- Specialists -->
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:0;">
+        <div style="background:rgba(52,211,153,0.06); padding:14px 6px 10px; border-radius:4px; border:1px solid rgba(52,211,153,0.2); position:relative;">
+          <div style="position:absolute; top:-9px; left:50%; transform:translateX(-50%); width:1px; height:9px; background:rgba(52,211,153,0.5);"></div>
+          <i class="ph-fill ph-magnifying-glass" style="font-size:1.4rem; color:#34d399;"></i>
+          <p style="color:#D4F5E2; font-size:0.78rem; margin-top:6px; font-weight:600;">시장조사</p>
+        </div>
+        <div style="background:rgba(52,211,153,0.06); padding:14px 6px 10px; border-radius:4px; border:1px solid rgba(52,211,153,0.2); position:relative;">
+          <div style="position:absolute; top:-9px; left:50%; transform:translateX(-50%); width:1px; height:9px; background:rgba(52,211,153,0.5);"></div>
+          <i class="ph-fill ph-note-pencil" style="font-size:1.4rem; color:#34d399;"></i>
+          <p style="color:#D4F5E2; font-size:0.78rem; margin-top:6px; font-weight:600;">보고서</p>
+        </div>
+        <div style="background:rgba(52,211,153,0.06); padding:14px 6px 10px; border-radius:4px; border:1px solid rgba(52,211,153,0.2); position:relative;">
+          <div style="position:absolute; top:-9px; left:50%; transform:translateX(-50%); width:1px; height:9px; background:rgba(52,211,153,0.5);"></div>
+          <i class="ph-fill ph-shield-check" style="font-size:1.4rem; color:#34d399;"></i>
+          <p style="color:#D4F5E2; font-size:0.78rem; margin-top:6px; font-weight:600;">팩트체크</p>
+        </div>
+        <div style="background:rgba(52,211,153,0.06); padding:14px 6px 10px; border-radius:4px; border:1px solid rgba(52,211,153,0.2); position:relative;">
+          <div style="position:absolute; top:-9px; left:50%; transform:translateX(-50%); width:1px; height:9px; background:rgba(52,211,153,0.5);"></div>
+          <i class="ph-fill ph-presentation-chart" style="font-size:1.4rem; color:#34d399;"></i>
+          <p style="color:#D4F5E2; font-size:0.78rem; margin-top:6px; font-weight:600;">시각화</p>
+        </div>
+      </div>
+      <div style="margin-top:14px; padding:6px 14px; background:rgba(52,211,153,0.15); border-radius:4px; display:inline-flex; align-items:center; gap:6px;">
+        <i class="ph-fill ph-lightning" style="font-size:0.95rem; color:#34d399;"></i>
+        <span style="color:#34d399; font-size:0.85rem; font-weight:700;">전문가 4명이 동시에 병렬</span>
+      </div>
     </div>
   </div>
+  <p class="sub" style="margin-top:3vh;">한 명이 순서대로 처리하던 일을 <span class="em">팀이 동시에</span> &mdash; 개인 작업에서 조직 작업으로</p>
 </div>
 
 <!-- S22 지시 → 결과물 -->
@@ -526,16 +594,21 @@ kbd{display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.06);borde
       <p>데이터 수집<br><strong>인사이트 도출</strong></p>
     </div>
   </div>
-  <p class="sub" style="margin-top:2vh;">코딩뿐 아니라 <span class="em">문서 &middot; 분석 &middot; 발표자료</span>까지 &mdash; 지금 보시는 이 자료가 그 증거입니다</p>
+  <p class="sub" style="margin-top:2vh;">코딩뿐 아니라 <span class="em">문서 &middot; 분석 &middot; 발표자료</span> 같은 디지털 산출물 전반에 적용</p>
 </div>
 
 <!-- Demo -->
 <div class="slide">
   <h3>Demo &mdash; Claude Code로 웹사이트 제작</h3>
-  <div style="margin-top:2vh; width:100%; max-width:880px; aspect-ratio:16/9; background:#0D0D0D; border:1px solid rgba(255,255,255,0.08); border-radius:4px; display:flex; justify-content:center; align-items:center; overflow:hidden;">
-    <video controls preload="metadata" style="width:100%; height:100%; object-fit:contain;">
+  <div style="margin-top:2vh; width:100%; max-width:880px; aspect-ratio:16/9; background:#0D0D0D; border:1px solid rgba(255,255,255,0.08); border-radius:4px; display:flex; justify-content:center; align-items:center; overflow:hidden; position:relative;">
+    <video controls preload="metadata" style="width:100%; height:100%; object-fit:contain;" poster="assets/ai-value-chain.png">
       <source src="assets/demo_0406.mp4" type="video/mp4">
       <source src="assets/demo_0406.MOV" type="video/quicktime">
+      <!-- Fallback: 로컬 영상 부재 시 안내 -->
+      <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:14px; padding:20px;">
+        <i class="ph-fill ph-video" style="font-size:3rem; color:rgba(255,255,255,0.3);"></i>
+        <p style="color:rgba(255,255,255,0.5); text-align:center; font-size:0.95rem;">로컬 데모 영상 (assets/demo_0406.mp4)이 아직 추가되지 않았습니다.<br/>대안: <a href="https://www.youtube.com/watch?v=iI_zWNunkc4" target="_blank" rel="noopener" style="color:#60a5fa;">Anthropic 공식 Claude Code 데모</a></p>
+      </div>
     </video>
   </div>
   <p class="sub" style="margin-top:1.5vh;">자연어 지시 &rarr; AI가 설계 &middot; 구현 &middot; 배포까지 자율 실행</p>
@@ -566,8 +639,8 @@ kbd{display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.06);borde
   <h3>Science AI &mdash; 새로운 지식의 창출</h3>
   <ul class="list">
     <li><strong>2024 노벨 화학상</strong> &mdash; AI 단백질 구조 예측 (AlphaFold)</li>
-    <li><strong>GPT-5.2 Pro</strong> &mdash; 이론 물리학 <span class="em">새 공식 도출</span> + 자체 증명</li>
-    <li><strong>Gemini 3 Deep Think</strong> &mdash; Codeforces(세계적 프로그래밍 대회) <span class="em">세계 8위</span> 등극</li>
+    <li><strong>GPT-5.2 Pro</strong> &mdash; 이론 물리학 난제 풀이 + 자체 검증 사례</li>
+    <li><strong>Gemini 3 Deep Think</strong> &mdash; Codeforces(글로벌 프로그래밍 대회) <span class="em">상위권 성능</span></li>
   </ul>
   <p class="sub">기존 지식의 정리를 넘어 &mdash; <strong>새로운 지식을 창출</strong>하는 단계</p>
 </div>
@@ -627,28 +700,29 @@ kbd{display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.06);borde
   </div>
 </div>
 
-<!-- S27 이 발표자료도 Claude Code가 만들었다 -->
+<!-- S27 활용 사례: 발표자료 제작 -->
 <div class="slide surface">
-  <h3>이 발표자료 &mdash; Claude Code가 만들었습니다</h3>
-  <div class="stat-grid" style="margin-top:3vh;">
+  <h3>활용 사례 &mdash; 발표자료 제작 워크플로우</h3>
+  <p class="sub" style="margin-top:0; margin-bottom:3vh; font-size:clamp(1.05rem,1.5vw,1.3rem); color:rgba(255,255,255,0.6);">사람의 판단 + AI 실행력 결합</p>
+  <div class="stat-grid" style="margin-top:1vh;">
     <div class="stat-card on">
-      <div class="label">작업 내용</div>
-      <div class="value" style="font-size:1.6rem;">리서치 &rarr; 구조 설계 &rarr;<br>디자인 &rarr; 56장 슬라이드</div>
+      <div class="label">작업 범위</div>
+      <div class="value" style="font-size:1.4rem;">리서치 &rarr; 구조 &rarr;<br>디자인 &rarr; 슬라이드</div>
     </div>
-    <div class="stat-card on" style="border-top-color:rgba(16,232,144,0.5); background:transparent;">
-      <div class="label" style="color:#34d399;">AI 소요 시간</div>
+    <div class="stat-card on" style="border-top-color:rgba(52,211,153,0.5); background:transparent;">
+      <div class="label" style="color:#34d399;">AI 협업 시간</div>
       <div class="value" style="color:#34d399;">~2시간</div>
     </div>
     <div class="stat-card" style="border-top-color:rgba(252,165,165,0.4); background:transparent;">
-      <div class="label" style="color:#fca5a5;">사람만으로 동일 작업</div>
+      <div class="label" style="color:#fca5a5;">기존 수동 작업</div>
       <div class="value" style="color:#fca5a5;">2~3일</div>
     </div>
     <div class="stat-card on">
-      <div class="label">핵심 포인트</div>
-      <div class="value" style="font-size:1.6rem;">사람의 판단 +<br>AI의 실행력</div>
+      <div class="label">핵심 변화</div>
+      <div class="value" style="font-size:1.4rem;">결과물 작성 &rarr;<br>방향 판단</div>
     </div>
   </div>
-  <p class="sub" style="margin-top:2vh;">문서 작성 &middot; 정리가 가장 힘든 업무 &mdash; 잘 짜인 <span class="em">템플릿만 있으면</span> 누구든 만들 수 있습니다</p>
+  <p class="sub" style="margin-top:2vh;">문서 작성·정리는 가장 시간이 많이 드는 업무 &mdash; <span class="em">템플릿화·반복 가능한 공정</span>으로 전환</p>
 </div>
 
 <!-- 전환: Section 04 → Section 05 브릿지 -->
@@ -659,16 +733,17 @@ kbd{display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.06);borde
 
 <!-- ══ SECTION 05: 메모리와 AI ══ -->
 
-<!-- S28 섹션 구분: 메모리와 AI -->
+<!-- S28 섹션 구분: AI 인프라 병목 -->
 <div class="slide amber">
   <p class="meta" style="color:rgba(255,255,255,0.4);">SECTION 05</p>
-  <h1>AI 인프라의 심장</h1>
-  <p class="sub">우리가 만드는 것 &mdash; <span class="em">메모리</span>의 구조적 수요</p>
+  <h1>AI 인프라의 병목</h1>
+  <p class="sub">어디가 가장 먼저 한계에 부딪히는가 &mdash; <span class="em">메모리</span>의 구조적 수요</p>
 </div>
 
-<!-- S29 메모리 수요의 구조적 전환 -->
+<!-- S29 메모리 — 어디가 병목인가 -->
 <div class="slide surface">
-  <h3>메모리 수요의 구조적 전환</h3>
+  <h3>AI 인프라에서 어디가 병목인가</h3>
+  <p class="sub" style="margin-top:0; margin-bottom:3vh; font-size:clamp(1.05rem,1.5vw,1.3rem); color:rgba(255,255,255,0.55);">훈련 &middot; 추론 &middot; 영상 &middot; 월드모델 &mdash; 결국 <span class="em">메모리</span>로 수렴</p>
   <div class="stat-grid">
     <div class="stat-card on">
       <div class="label">훈련 데이터</div>
@@ -676,9 +751,9 @@ kbd{display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.06);borde
       <div class="source">텍스트 LLM 대비 영상 AI</div>
     </div>
     <div class="stat-card on">
-      <div class="label">추론 리소스</div>
-      <div class="value" style="color:#fbbf24;">10배</div>
-      <div class="source">텍스트 대비 영상 AI 추론량</div>
+      <div class="label">추론 KV 캐시</div>
+      <div class="value" style="color:#fbbf24;">100배</div>
+      <div class="source">Reasoning 모델 long context</div>
     </div>
     <div class="stat-card on">
       <div class="label">생성물 크기</div>
@@ -687,7 +762,7 @@ kbd{display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.06);borde
     </div>
   </div>
   <div class="note tip">
-    <p>LLM이 선형적이라면, 영상 AI는 지수적 &mdash; <strong>메모리 수요가 함께 폭증</strong></p>
+    <p>LLM은 선형적, 추론·영상·월드모델은 지수적 &mdash; 로직 칩이 아니라 <strong>HBM 공급이 출고량을 결정</strong></p>
   </div>
 </div>
 
@@ -792,23 +867,38 @@ kbd{display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.06);borde
   <p class="sub" style="margin-top:3vh;">훈련 + 추론 + 저장 + 엣지 = <span class="em">4중 구조적 수요</span><br>그래서 실제로 얼마나 투자하고 있을까?</p>
 </div>
 
-<!-- NEW: 래리 페이지 인용 — 투자 경주의 본질 -->
+<!-- 왜 천문학적 투자를 멈출 수 없는가 — 치킨게임 내러티브 -->
 <div class="slide in-amber">
-  <blockquote>"이 경쟁에서 지느니<br><span class="yellow">파산하는 게 낫다</span>"</blockquote>
-  <cite>&mdash; Larry Page, Alphabet 공동창업자 &middot; Google 내부 발언</cite>
-  <p class="sub" style="margin-top:4vh;">5대 하이퍼스케일러가 2026년에 <strong style="color:#fff;">$680B+</strong>(940조원)을 AI 인프라에 쏟아붓는 이유<br>ROI 확신이 아니라 <span class="em">경쟁에서 뒤처지면 끝난다</span>는 공포</p>
-  <div class="note warn" style="margin-top:2vh;">
-    <p>모든 경쟁자가 $100B+ 투자 &mdash; 나만 안 하면 AGI 경쟁 탈락 &rarr; 검색·클라우드·광고 시장 전체를 잃는다</p>
+  <h3>왜 천문학적 투자를 멈출 수 없는가</h3>
+  <p class="sub" style="margin-top:0; margin-bottom:3vh; font-size:clamp(1.05rem,1.5vw,1.3rem); color:rgba(255,255,255,0.6);">과잉투자는 <span style="color:#fbbf24;">비용</span>의 문제, 과소투자는 <span class="em">존재</span>의 문제</p>
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px; width:100%; max-width:1000px;">
+    <div style="border:1px solid rgba(252,165,165,0.25); border-top:3px solid rgba(252,165,165,0.55); border-radius:4px; padding:26px 22px;">
+      <i class="ph-fill ph-warning-octagon" style="font-size:2.2rem; color:#fca5a5; margin-bottom:10px;"></i>
+      <div style="color:#fca5a5; font-size:0.85rem; font-weight:700; letter-spacing:0.04em; margin-bottom:8px;">공포</div>
+      <p style="color:rgba(255,255,255,0.75); font-size:0.98rem; line-height:1.55;">밀려나면 다음 10&ndash;15년 AI 플랫폼에서 제외된다<br><span style="color:rgba(252,165,165,0.5); font-size:0.78rem;">&mdash; 빅테크 CEO 발언 종합</span></p>
+    </div>
+    <div style="border:1px solid rgba(251,191,36,0.25); border-top:3px solid rgba(251,191,36,0.55); border-radius:4px; padding:26px 22px;">
+      <i class="ph-fill ph-scales" style="font-size:2.2rem; color:#fbbf24; margin-bottom:10px;"></i>
+      <div style="color:#fbbf24; font-size:0.85rem; font-weight:700; letter-spacing:0.04em; margin-bottom:8px;">비대칭 리스크</div>
+      <p style="color:rgba(255,255,255,0.75); font-size:0.98rem; line-height:1.55;">과소투자 리스크가<br>과잉투자보다 <strong style="color:#fff;">극적으로 크다</strong><br><span style="color:rgba(251,191,36,0.5); font-size:0.78rem;">&mdash; Sundar Pichai, Alphabet CEO</span></p>
+    </div>
+    <div style="border:1px solid rgba(96,165,250,0.25); border-top:3px solid rgba(96,165,250,0.55); border-radius:4px; padding:26px 22px;">
+      <i class="ph-fill ph-tree-structure" style="font-size:2.2rem; color:#60a5fa; margin-bottom:10px;"></i>
+      <div style="color:#60a5fa; font-size:0.85rem; font-weight:700; letter-spacing:0.04em; margin-bottom:8px;">치킨게임 구조</div>
+      <p style="color:rgba(255,255,255,0.75); font-size:0.98rem; line-height:1.55;">수요 &gt; 공급, 긴 리드타임<br>지금 안 깔면 따라잡을 수 없음<br><span style="color:rgba(96,165,250,0.5); font-size:0.78rem;">&mdash; AI 클라우드 점유율 게이트</span></p>
+    </div>
   </div>
+  <p class="sub" style="margin-top:3vh;">하이퍼스케일러들이 앞다퉈 인프라·메모리에 천문학적 자본을 쏟는 이유 &mdash; <span class="em">멈추는 순간 탈락</span></p>
 </div>
 
-<!-- V2: AI 밸류체인 -->
+<!-- V2: AI 밸류체인 — 투자자 관점 다이어그램 -->
 <div class="slide surface">
   <h3>AI 밸류체인</h3>
-  <div style="text-align:center; width:100%; max-width:880px; margin-top:1vh;">
-    <img src="assets/ai-value-chain.png" alt="AI Value Chain Diagram" style="max-width:100%; max-height:72vh; object-fit:contain; border-radius:10px;">
+  <div style="text-align:center; width:100%; max-width:1000px; margin-top:1vh;">
+    <img src="assets/ai-value-chain-medium.png" alt="AI Value Chain Framework" style="max-width:100%; max-height:70vh; object-fit:contain; border-radius:6px; background:#fff; padding:8px;">
+    <p style="text-align:center; margin-top:8px; font-size:0.78rem; color:rgba(255,255,255,0.35);">출처: Machine Learning Made Simple &mdash; A High-level Investor's Analysis of the Gen AI Market</p>
   </div>
-  <p class="sub" style="margin-top:1.5vh;">모든 레이어가 <span class="em">메모리 위에서</span> 작동한다</p>
+  <p class="sub" style="margin-top:1vh;">반도체 &middot; 데이터센터 &middot; 클라우드 &middot; 모델 &middot; 데이터 &middot; 애플리케이션 &mdash; 모든 레이어가 <span class="em">메모리 위에서</span> 작동한다</p>
 </div>
 
 <!-- V2: Tier 5 메모리 상세 — HBM / DDR5 / NAND / DDR4 -->
